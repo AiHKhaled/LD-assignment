@@ -1,7 +1,18 @@
-import React from "react";
+import { FC } from "react";
+import ParentCard from "../cards/Card";
+import Configure from "../cards/Configure";
+import Orders from "../cards/Orders";
+import Visitors from "../cards/Visitors";
 
-function Dashboard() {
-  return <div>Dashboard</div>;
-}
+const Dashboard: FC = () => {
+  return (
+    <div>
+      <ParentCard />
+      <Visitors />
+      <Orders />
+      <Configure />
+    </div>
+  );
+};
 
 export default Dashboard;
