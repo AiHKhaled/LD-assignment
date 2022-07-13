@@ -12,11 +12,11 @@ export const theme = createTheme({
   palette: {
     success: {
       main: "#00C48C",
-      contrastText: "#fff",
+      contrastText: "#000",
     },
     text: {
       primary: "#233B53",
-      secondary: "#103B66",
+      secondary: "#7e99b4",
     },
   },
   mixins: {

@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useMemo } from "react";
 
 type DrawerContextType = {
   isOpened: boolean;
@@ -13,11 +13,15 @@ const DrawerContext = createContext<DrawerContextType | undefined>(undefined);
 
 const DrawerContextProvider = ({ children }: DrawerContextProviderProps) => {
   const [isOpened, toggleIsOpened] = useState(false);
-
+  const value = useMemo(
+    () => ({
+      isOpened,
+      toggleIsOpened,
+    }),
+    [isOpened, toggleIsOpened]
+  );
   return (
-    <DrawerContext.Provider value={{ isOpened, toggleIsOpened }}>
-      {children}
-    </DrawerContext.Provider>
+    <DrawerContext.Provider value={value}>{children}</DrawerContext.Provider>
   );
 };
 

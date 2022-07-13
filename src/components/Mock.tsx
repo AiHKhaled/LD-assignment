@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import SideBar from "../components/Drawer/Drawer";
+import SideBar from "../Drawer/Drawer";
 import Header from "./Header";
 
 function DashboardContent() {
