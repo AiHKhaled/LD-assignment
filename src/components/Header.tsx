@@ -15,7 +15,6 @@ const Header = () => {
   const { isOpened } = useDrawerContext();
   return (
     <AppBar
-      position="static"
       elevation={0}
       sx={{
         bgcolor: "#fff",
@@ -37,7 +36,11 @@ const Header = () => {
           flexGrow={1}
           flexWrap="wrap"
         >
-          <Typography variant="h6" fontWeight="600">
+          <Typography
+            variant="h6"
+            fontWeight="600"
+            sx={{ color: theme.palette.primary.dark }}
+          >
             Dashboard
           </Typography>
           <Badge badgeContent={15} color="secondary">

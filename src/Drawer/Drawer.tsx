@@ -1,15 +1,17 @@
-import { styled, Theme, CSSObject, useTheme } from "@mui/material/styles";
+import { useState } from "react";
+
+import { styled, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import { CssBaseline, Divider, IconButton, Typography } from "@mui/material";
+import { Divider, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 import { drawerData } from "./DrawerData";
 import { useDrawerContext } from "../context/DrawerContext";
 import DrawerMenu from "./DrawerMenu";
-import { useState } from "react";
+import { Store } from "./Store";
 
-const drawerWidth = 240;
+const drawerWidth = 255;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -49,19 +51,8 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const handleDrawerStatus = (
-  isOpened: boolean,
-  toggleIsOpened: any,
-  showSubnav: boolean,
-  setShowSubnav: React.Dispatch<React.SetStateAction<boolean>>
-) => {
-  showSubnav && setShowSubnav(!showSubnav);
-  toggleIsOpened(!isOpened);
-};
-
 const SideBar = () => {
   const { isOpened, toggleIsOpened } = useDrawerContext();
-  const [showSubnav, setShowSubnav] = useState(false);
   const [selected, setSelected] = useState<number>(0);
 
   return (
@@ -71,7 +62,7 @@ const SideBar = () => {
         display="flex"
         justifyContent={isOpened ? "space-between" : "center"}
         alignItems="center"
-        p="15px 20px 0px 20px"
+        p="15px 20px 0px 27px"
       >
         {isOpened && (
           <Typography fontWeight={600} letterSpacing="5px">
@@ -88,23 +79,37 @@ const SideBar = () => {
       </Box>
       <>
         {drawerData.map(
-          ({ Icon, title, subnav, badgeContent, hasBadge }, index) => {
-            return (
-              <div key={index} onClick={() => setSelected(index)}>
+          (
+            {
+              Icon,
+              title,
+              subnav,
+              badgeContent,
+              hasBadge,
+              isDivider,
+              isMenu,
+              isStore,
+              items,
+            },
+            index
+          ) =>
+            (isDivider && (
+              <Divider key={`divid${index}`} sx={{ m: "20px" }} />
+            )) ||
+            (isMenu && (
+              <div key={`item${index}`} onClick={() => setSelected(index)}>
                 <DrawerMenu
                   Icon={Icon}
-                  title={title}
+                  title={title || ""}
                   subnav={subnav}
                   badgeContent={badgeContent}
                   hasBadge={hasBadge}
-                  showSubnav={showSubnav}
-                  setShowSubnav={setShowSubnav}
                   isSelected={selected === index}
                   key={index}
                 />
               </div>
-            );
-          }
+            )) ||
+            (isStore && isOpened && <Store data={items} title={title} />)
         )}
       </>
     </Drawer>

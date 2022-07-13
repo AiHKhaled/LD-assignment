@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
-
 export type DrawerItem = {
   title: string;
   Icon: any;
@@ -7,8 +5,6 @@ export type DrawerItem = {
   hasBadge?: boolean;
   badgeContent?: number;
   subnav?: Sub[];
-  showSubnav: boolean;
-  setShowSubnav: Dispatch<SetStateAction<boolean>>;
   isSelected: boolean;
 };
 

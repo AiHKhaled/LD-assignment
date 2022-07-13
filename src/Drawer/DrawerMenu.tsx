@@ -7,9 +7,10 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
-import { Badge, ListItemIcon } from "@mui/material";
+import { Badge, Chip } from "@mui/material";
 import { DrawerItem } from "../Types/IconsType";
 import { useDrawerContext } from "../context";
+import { Store } from "./Store";
 
 const DrawerMenu: React.FC<DrawerItem> = ({
   title,
@@ -17,9 +18,6 @@ const DrawerMenu: React.FC<DrawerItem> = ({
   subnav,
   badgeContent,
   hasBadge,
-  showSubnav,
-  setShowSubnav,
-  isSelected,
 }: DrawerItem) => {
   const { isOpened } = useDrawerContext();
   const [open, setOpen] = React.useState(true);
@@ -47,31 +45,23 @@ const DrawerMenu: React.FC<DrawerItem> = ({
           onClick={handleClick}
         >
           {hasBadge ? (
-            <Badge badgeContent={badgeContent} color="success" variant="dot">
+            <Badge badgeContent={badgeContent} color="error" variant="dot">
               <Icon />
             </Badge>
           ) : (
             <Icon />
           )}
-          {isOpened && <ListItemText sx={{ pl: "20px" }} primary={title} />}
+          {isOpened && <ListItemText sx={{ pl: "15px" }} primary={title} />}
 
           {(hasBadge && isOpened && (
-            <Badge
-              badgeContent={badgeContent}
-              color="success"
-              sx={{
-                "& .MuiBadge-badge": {
-                  fontSize: "12px",
-                  height: "24px",
-                  minWidth: "24px",
-                  borderRadius: "50%",
-                  padding: "5px",
-                  transform: "translate( -1% , -50%)",
-                },
-              }}
+            <Chip
+              label={badgeContent}
+              color={"secondary"}
+              size="small"
+              sx={{ height: "auto" }}
             />
           )) ||
-            (subnav && isOpened ? open ? <ExpandMore /> : <ExpandLess /> : "")}
+            (subnav && isOpened ? open ? <ExpandLess /> : <ExpandMore /> : "")}
         </ListItemButton>
         {subnav && (
           <Collapse in={open} timeout="auto" unmountOnExit>
