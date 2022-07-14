@@ -6,19 +6,19 @@ const Welcome = () => {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    background-color: red;
     height: 182px;
     width: "100%";
     padding: 40px 20px 0 40px;
     background: rgb(2, 0, 36);
     background: linear-gradient(
-      172deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(64, 69, 168, 1) 23%,
-      rgba(0, 212, 255, 1) 60%
+      180deg,
+      #21b8f9 0%,
+      rgba(33, 184, 249, 0) 132.05%
     );
+
     color: white;
   `;
+
   const Styledlink = styled("div")`
     font-size: 20px;
     color: white;
@@ -29,7 +29,7 @@ const Welcome = () => {
       text-decoration: none;
       font-family: monospace;
       &:hover {
-        color: #3434ac;
+        color: #6cb4d3;
       }
     }
   `;

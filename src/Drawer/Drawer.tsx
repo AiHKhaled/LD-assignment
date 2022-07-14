@@ -9,7 +9,7 @@ import { Box } from "@mui/system";
 import { drawerData } from "./DrawerData";
 import { useDrawerContext } from "../context/DrawerContext";
 import DrawerMenu from "./DrawerMenu";
-import { Store } from "./Store";
+import { MultiChoice } from "../common/MultiChoice";
 
 const drawerWidth = 255;
 
@@ -97,7 +97,7 @@ const SideBar = () => {
               <Divider key={`divid${index}`} sx={{ m: "20px" }} />
             )) ||
             (isMenu && (
-              <div key={`item${index}`} onClick={() => setSelected(index)}>
+              <div key={`ItemMenu${index}`} onClick={() => setSelected(index)}>
                 <DrawerMenu
                   Icon={Icon}
                   title={title || ""}
@@ -109,7 +109,12 @@ const SideBar = () => {
                 />
               </div>
             )) ||
-            (isStore && isOpened && <Store data={items} title={title} />)
+            (isStore && isOpened && (
+              <div key={`storeItem${index}`}>
+                <Typography sx={{ ml: "15px" }}>select a store</Typography>
+                <MultiChoice data={items} />
+              </div>
+            ))
         )}
       </>
     </Drawer>

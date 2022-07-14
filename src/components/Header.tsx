@@ -43,7 +43,7 @@ const Header = () => {
           >
             Dashboard
           </Typography>
-          <Badge badgeContent={15} color="secondary">
+          <Badge badgeContent={2} color="secondary">
             <Button size="small" variant="text" sx={{ padding: "0" }}>
               <BoltIcon />
               <Typography

@@ -25,6 +25,6 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Mingzat', sans-serif",
+    fontFamily: "'Noto Sans HK', sans-serif",
   },
 });

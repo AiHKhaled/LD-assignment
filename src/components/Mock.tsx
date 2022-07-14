@@ -1,5 +1,6 @@
 import { Box, styled } from "@mui/material";
 import SideBar from "../Drawer/Drawer";
+import BasicGrid from "./CardsContainer";
 import Header from "./Header";
 import Welcome from "./Welcome";
 
@@ -9,19 +10,13 @@ function DashboardContent() {
   `;
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      <Box display="flex">
         <Header />
         <SideBar />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            flexGrow: 1,
-            backgroundColor: "red",
-          }}
-        >
+        <Box display="flex" flexDirection="column" flexGrow={1}>
           <Space />
           <Welcome />
+          <BasicGrid />
         </Box>
       </Box>
     </>

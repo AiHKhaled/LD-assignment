@@ -10,7 +10,6 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import { Badge, Chip } from "@mui/material";
 import { DrawerItem } from "../Types/IconsType";
 import { useDrawerContext } from "../context";
-import { Store } from "./Store";
 
 const DrawerMenu: React.FC<DrawerItem> = ({
   title,
@@ -69,17 +68,19 @@ const DrawerMenu: React.FC<DrawerItem> = ({
               sx={{
                 display: isOpened ? "flex" : "none",
                 flexDirection: "column",
+                fontSize: "14px",
               }}
               component="div"
               disablePadding
             >
-              {subnav?.map(({ title }) => {
+              {subnav?.map(({ title }, i) => {
                 return (
                   <ListItemButton
                     dense={true}
                     sx={{
                       marginLeft: "40px",
                     }}
+                    key={`subItemMenu${i}`}
                   >
                     <ListItemText primary={title} />
                   </ListItemButton>

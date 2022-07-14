@@ -4,36 +4,35 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-type SelectStoreType = {
+type MultiChoiceType = {
   title?: string;
   data: string[];
 };
 
-export const Store: React.FC<SelectStoreType> = ({ data }: SelectStoreType) => {
+export const MultiChoice: React.FC<MultiChoiceType> = ({
+  data,
+  title,
+}: MultiChoiceType) => {
   const [value, setValue] = React.useState(data[0]);
 
-  const handleChange = (
-    event: SelectChangeEvent
-    //setValue: React.Dispatch<React.SetStateAction<string>>
-  ) => {
+  const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value);
   };
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 200 }}>
-        <InputLabel id="demo-simple-select-helper-label">Store</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 115 }}>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={value}
-          label="Age"
+          inputProps={{ "aria-label": "Without label" }}
           onChange={handleChange}
         >
-          {/* (event: SelectChangeEvent) => 
-            (event, setValue) */}
-          {data.map((item) => (
-            <MenuItem value={item}>{item} </MenuItem>
+          {data.map((item, i) => (
+            <MenuItem value={item} key={`multiChoice${i}`}>
+              {item}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
