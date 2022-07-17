@@ -18,6 +18,7 @@ const MediaCard: React.FC<parentCardType> = ({
   CardBody,
   isPeriod,
   topLink,
+  style,
 }: parentCardType) => {
   const Mid = useMediaQuery("(max-width:1416px)");
 
@@ -27,6 +28,7 @@ const MediaCard: React.FC<parentCardType> = ({
         padding: "4px 2px",
         minHeight: "220px",
         borderRadius: "10px",
+        ...style,
       }}
       elevation={3}
     >

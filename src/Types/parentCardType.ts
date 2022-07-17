@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 
 export type parentCardType = {
   title?: string;
@@ -8,4 +8,5 @@ export type parentCardType = {
   CardContent?: ReactNode;
   isPeriod?: boolean;
   topLink?: boolean;
+  style?: CSSProperties;
 };

@@ -58,8 +58,16 @@ import Grid from "@mui/material/Grid";
 import Visitors from "../cards/Visitors";
 import { Orders } from "../cards/Orders";
 import { Configure } from "../cards/Configure";
+import { Trust } from "../cards/Trust";
+import { CustomerSupport } from "../cards/CustomerSupport";
+import { InviteFriends } from "../cards/InviteFriends";
+import { SellProducts } from "../cards/SellProducts";
+import { Extensions } from "../cards/Extensions";
 
 export default function BasicGrid() {
+  const leftCards = [];
+  const rightCards = [Configure, Trust, InviteFriends, CustomerSupport];
+
   return (
     <Grid container sx={{ flexGrow: 1, p: "0 20px", marginTop: "-50px" }}>
       <Grid
@@ -79,7 +87,10 @@ export default function BasicGrid() {
           <Orders />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Visitors />
+          <SellProducts />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Extensions />
         </Grid>
       </Grid>
       <Grid
@@ -92,9 +103,13 @@ export default function BasicGrid() {
           alignContent: "flex-start",
         }}
       >
-        <Grid item xs={12}>
-          <Configure />
-        </Grid>
+        {rightCards.map((Card, i) => {
+          return (
+            <Grid key={i} item xs={12}>
+              <Card />
+            </Grid>
+          );
+        })}
       </Grid>
     </Grid>
   );
