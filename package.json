@@ -13,11 +13,13 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.6",
     "@trendyol-js/react-carousel": "^3.0.0",
+    "axios": "^0.27.2",
     "clsx": "^1.2.1",
     "react": "^18.0.0",
     "react-alice-carousel": "^2.6.1",
     "react-dom": "^18.0.0",
     "react-slick": "^0.29.0",
+    "react-tracked": "^1.7.9",
     "slick-carousel": "^1.8.1",
     "swiper": "^8.3.1"
   },

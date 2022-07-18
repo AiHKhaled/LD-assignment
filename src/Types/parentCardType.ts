@@ -7,6 +7,6 @@ export type parentCardType = {
   CardFooter?: ReactNode;
   CardContent?: ReactNode;
   isPeriod?: boolean;
-  topLink?: boolean;
+  topLink?: ReactNode;
   style?: CSSProperties;
 };
