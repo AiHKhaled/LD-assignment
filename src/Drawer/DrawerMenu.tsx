@@ -7,7 +7,7 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
-import { Badge, Chip } from "@mui/material";
+import { Badge, Chip, styled } from "@mui/material";
 import { DrawerItem } from "../Types/IconsType";
 import { useDrawerContext } from "../context";
 
@@ -25,24 +25,31 @@ const DrawerMenu: React.FC<DrawerItem> = ({
     setOpen(!open);
   };
 
+  const StyledButton = styled(ListItemButton)({
+    "&:hover": { background: "#26284687" },
+  });
+
+  const style = {
+    container: {
+      width: "100%",
+      maxWidth: 360,
+      bgcolor: "background.paper",
+    },
+    list: {
+      display: isOpened ? "flex" : "none",
+      flexDirection: "column",
+      fontSize: "14px",
+    },
+  };
   return (
     <>
       <List
         dense={true}
-        sx={{
-          width: "100%",
-          maxWidth: 360,
-          bgcolor: "background.paper",
-        }}
+        style={style.container}
         component="nav"
         aria-labelledby="nested-list-subheader"
       >
-        <ListItemButton
-          sx={{
-            " &:hover": { background: "#26284687" },
-          }}
-          onClick={handleClick}
-        >
+        <StyledButton onClick={handleClick}>
           {hasBadge ? (
             <Badge badgeContent={badgeContent} color="error" variant="dot">
               <Icon />
@@ -61,21 +68,13 @@ const DrawerMenu: React.FC<DrawerItem> = ({
             />
           )) ||
             (subnav && isOpened ? open ? <ExpandLess /> : <ExpandMore /> : "")}
-        </ListItemButton>
+        </StyledButton>
         {subnav && (
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <List
-              sx={{
-                display: isOpened ? "flex" : "none",
-                flexDirection: "column",
-                fontSize: "14px",
-              }}
-              component="div"
-              disablePadding
-            >
+            <List sx={style.list} component="div" disablePadding>
               {subnav?.map(({ title }, i) => {
                 return (
-                  <ListItemButton
+                  <StyledButton
                     dense={true}
                     sx={{
                       marginLeft: "40px",
@@ -83,7 +82,7 @@ const DrawerMenu: React.FC<DrawerItem> = ({
                     key={`subItemMenu${i}`}
                   >
                     <ListItemText primary={title} />
-                  </ListItemButton>
+                  </StyledButton>
                 );
               })}
             </List>

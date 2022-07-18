@@ -21,7 +21,7 @@ export const MultiChoice: React.FC<MultiChoiceType> = ({
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 115 }}>
+      <FormControl sx={{ m: 1, minWidth: 210 }}>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"

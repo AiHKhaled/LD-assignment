@@ -15,7 +15,7 @@ export const NewsItem: FC<NewsItemType> = ({
   description,
   publisher,
 }: NewsItemType) => {
-  const bgcolor = {
+  const style = {
     color: "rgba(33, 184, 249, 1)",
     font: "Noto Sans HK 'sans serif '",
     linkColor: {
@@ -25,17 +25,20 @@ export const NewsItem: FC<NewsItemType> = ({
     contentNews: {
       fontWeight: "300",
     },
+    boxWidth: {
+      width: "370px",
+    },
   };
   return (
-    <Box sx={{ width: "370px" }}>
+    <Box style={style.boxWidth}>
       <Box display="flex" flexDirection="row" gap={3} pt="10px">
         <img src={image} alt="news" width={"120px"} height="auto" />
         <Box display="flex" flexDirection="column" gap={2}>
-          <Typography style={bgcolor} fontSize="15px">
+          <Typography style={style} fontSize="15px">
             {title}
           </Typography>
           <Typography fontSize="14px">{description}</Typography>
-          <Link style={bgcolor.linkColor}>{publisher}</Link>
+          <Link style={style.linkColor}>{publisher}</Link>
         </Box>
       </Box>
     </Box>

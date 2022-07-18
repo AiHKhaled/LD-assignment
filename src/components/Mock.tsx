@@ -1,6 +1,7 @@
 import { Box, styled } from "@mui/material";
+import { ApiContextProvider } from "../context/ApiContext";
 import SideBar from "../Drawer/Drawer";
-import BasicGrid from "./CardsContainer";
+import CardsContainer from "./CardsContainer";
 import Header from "./Header";
 import Welcome from "./Welcome";
 
@@ -16,7 +17,9 @@ function DashboardContent() {
         <Box display="flex" flexDirection="column" flexGrow={1}>
           <Space />
           <Welcome />
-          <BasicGrid />
+          <ApiContextProvider>
+            <CardsContainer />
+          </ApiContextProvider>
         </Box>
       </Box>
     </>

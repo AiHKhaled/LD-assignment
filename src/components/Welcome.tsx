@@ -1,5 +1,4 @@
-import { Link, styled, Typography } from "@mui/material";
-import React from "react";
+import { styled, Typography } from "@mui/material";
 
 const Welcome = () => {
   const Styled = styled("div")`
