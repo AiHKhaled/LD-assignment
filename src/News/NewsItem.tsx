@@ -5,14 +5,14 @@ import { FC } from "react";
 export type NewsItemType = {
   image?: string;
   title?: string;
-  author?: string;
+  description?: string;
   publisher?: string;
 };
 
 export const NewsItem: FC<NewsItemType> = ({
   image,
   title,
-  author,
+  description,
   publisher,
 }: NewsItemType) => {
   const bgcolor = {
@@ -27,14 +27,14 @@ export const NewsItem: FC<NewsItemType> = ({
     },
   };
   return (
-    <Box sx={{ width: "384px" }}>
+    <Box sx={{ width: "370px" }}>
       <Box display="flex" flexDirection="row" gap={3} pt="10px">
-        <img src={image} alt="" width={"120px"} height="100px" />
+        <img src={image} alt="news" width={"120px"} height="auto" />
         <Box display="flex" flexDirection="column" gap={2}>
           <Typography style={bgcolor} fontSize="15px">
             {title}
           </Typography>
-          <Typography fontSize="14px">{author}</Typography>
+          <Typography fontSize="14px">{description}</Typography>
           <Link style={bgcolor.linkColor}>{publisher}</Link>
         </Box>
       </Box>

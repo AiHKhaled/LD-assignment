@@ -64,7 +64,7 @@ import { InviteFriends } from "../cards/InviteFriends";
 import { SellProducts } from "../cards/SellProducts";
 import { Extensions } from "../cards/Extensions";
 import { News } from "../cards/LatestNews";
-import ApiContextProvider from "../reducer/reducer";
+import { ApiContextProvider } from "../context/ApiContext";
 
 export default function BasicGrid() {
   const leftCards = [];

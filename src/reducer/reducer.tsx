@@ -1,28 +1,18 @@
-type ApiContextType = {
-  loading?: boolean;
-  error?: string;
-  data?: NewsItemType[] | null;
-  dispatch?: Dispatch<ReducerActionType>;
-};
+import { NewsItemType } from "../News/NewsItem";
 
-type ReducerActionType = {
+export type ReducerActionType = {
   type?: string;
   payload?: NewsItemType[] | null;
 };
-
-import React, { Dispatch, useReducer } from "react";
-import { NewsItemType } from "../common/NewsItem";
-
-const initialState = {
+export const initialState = {
   loading: true,
   error: "",
-  data: [],
+  data: null,
+
+  dispatch: () => {},
 };
 
-export const ApiContext = React.createContext({});
-ApiContext.displayName = "ApiContext";
-
-const reducer = (state, action) => {
+export const reducer = (state = initialState, action: ReducerActionType) => {
   switch (action.type) {
     case "FETCH_SUCCESS":
       return {
@@ -42,16 +32,3 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
-const ApiContextProvider = ({ children }: any) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const value = {
-    state,
-    dispatch,
-  };
-
-  return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;
-};
-
-export default ApiContextProvider;

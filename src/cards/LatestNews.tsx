@@ -3,7 +3,7 @@ import news from "../images/News.svg";
 import { CustomLink } from "../common/CustomLink";
 import External from "../images/External.svg";
 import { Stack } from "@mui/material";
-import { NewsItems } from "../common/NewsItems";
+import { NewsItems } from "../News/NewsItems";
 
 export const News = () => {
   return (
