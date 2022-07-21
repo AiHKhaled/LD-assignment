@@ -4,8 +4,10 @@ import Iphone from "../images/Iphone.png";
 import app from "../images/app.png";
 import google from "../images/google.png";
 import { CustomLink } from "../common/CustomLink";
+import { useDrawerContext } from "../context";
 
 export const SellProducts = () => {
+  const { isOpened } = useDrawerContext();
   const backgroundC = {
     background: "rgba(243, 163, 92, 1)",
     color: "rgba(255, 255, 255, 1)",
@@ -33,7 +35,7 @@ export const SellProducts = () => {
         </Stack>
       }
       CardFooter={
-        <Stack flexDirection={"row"} alignItems="center" gap={8}>
+        <Stack flexDirection={"row"} alignItems="center" gap={isOpened ? 3 : 9}>
           <img src={google} alt="googleplay" />
           <img src={app} alt="appstore" />
         </Stack>

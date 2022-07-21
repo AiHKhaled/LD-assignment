@@ -34,7 +34,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-const Drawer = styled(MuiDrawer, {
+export const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   width: drawerWidth,
@@ -90,6 +90,7 @@ const SideBar = () => {
               isMenu,
               isStore,
               items,
+              route,
             },
             index
           ) =>
@@ -106,8 +107,10 @@ const SideBar = () => {
                   hasBadge={hasBadge}
                   isSelected={selected === index}
                   key={index}
+                  route={route}
                 />
               </div>
+              //</NavLink>
             )) ||
             (isStore && isOpened && (
               <div key={`storeItem${index}`}>
