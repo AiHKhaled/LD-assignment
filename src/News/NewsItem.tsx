@@ -17,20 +17,18 @@ export const NewsItem: FC<NewsItemType> = ({
 }: NewsItemType) => {
   const style = {
     color: "rgba(33, 184, 249, 1)",
-    font: "Noto Sans HK 'sans serif '",
+
     linkColor: {
       color: " rgba(16, 59, 102, 1)",
       fontWeight: "300",
     },
-    contentNews: {
-      fontWeight: "300",
-    },
+
     boxWidth: {
       width: "370px",
     },
   };
   return (
-    <Box style={style.boxWidth}>
+    <Box sx={style.boxWidth}>
       <Box display="flex" flexDirection="row" gap={3} pt="10px">
         <img src={image} alt="news" width={"120px"} height="auto" />
         <Box display="flex" flexDirection="column" gap={2}>

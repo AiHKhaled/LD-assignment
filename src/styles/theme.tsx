@@ -25,6 +25,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Noto Sans HK', sans-serif",
+    fontFamily: "'Noto Sans HK'",
+    fontWeightLight: 300,
   },
 });

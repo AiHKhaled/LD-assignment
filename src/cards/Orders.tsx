@@ -23,11 +23,7 @@ export const Orders = () => {
         </Box>
       }
       CardFooter={
-        <CustomLink
-          content="10 free tips to increase your sales"
-          link="#"
-          hasIcon
-        />
+        <CustomLink content="10 free tips to increase your sales" link="#" />
       }
     />
   );

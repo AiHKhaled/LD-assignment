@@ -6,13 +6,19 @@ import { Stack } from "@mui/material";
 import { NewsItems } from "../News/NewsItems";
 
 export const News = () => {
+  const stack = {
+    display: "flex",
+    flexDirection: "row",
+    gap: "1",
+  };
+
   return (
     <>
       <MediaCard
         title="Latest News"
         Icon={() => <img src={news} />}
         topLink={
-          <Stack display="flex" flexDirection="row" gap={1}>
+          <Stack sx={stack}>
             <CustomLink content="Visit our blog" />
             <a href="#">
               <img src={External} />

@@ -15,30 +15,36 @@ const MediaCard: React.FC<parentCardType> = ({
   CardBody,
   isPeriod,
   topLink,
+  style,
 }: parentCardType) => {
-  const style = {
+  const styled = {
     cardBody: { minHeight: "80px" },
-    actions: { margin: "0 0 14px 12px" },
+    actions: { margin: "0 0 14px 8px" },
+    card: {
+      padding: "4px 2px",
+      minHeight: "220px",
+      borderRadius: "10px",
+      elevation: "3",
+      ...style,
+    },
   };
 
   return (
-    <Card
-      sx={{
-        padding: "4px 2px",
-        minHeight: "220px",
-        borderRadius: "10px",
-        ...style,
-      }}
-      elevation={3}
-    >
+    <Card sx={styled.card}>
       <CardHeader
         avatar={Icon && <Icon />}
-        title={title && <Typography fontSize="20px">{title}</Typography>}
+        title={
+          title && (
+            <Typography fontSize={20} fontWeight={500}>
+              {title}
+            </Typography>
+          )
+        }
         action={(isPeriod && <FilterMenu />) || (topLink && topLink)}
       />
 
-      <CardContent sx={style.cardBody}>{CardBody}</CardContent>
-      <CardActions sx={style.actions}>{CardFooter}</CardActions>
+      <CardContent sx={styled.cardBody}>{CardBody}</CardContent>
+      <CardActions sx={styled.actions}>{CardFooter}</CardActions>
     </Card>
   );
 };

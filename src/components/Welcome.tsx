@@ -1,13 +1,15 @@
 import { styled, Typography } from "@mui/material";
+import externalLink from "../images/externalLink.svg";
 
 const Welcome = () => {
   const Styled = styled("div")`
     display: flex;
     align-items: flex-start;
+
     justify-content: space-between;
     height: 182px;
     width: "100%";
-    padding: 40px 20px 0 40px;
+    padding: 40px 40px 80px 40px;
     background: rgb(2, 0, 36);
     background: linear-gradient(
       180deg,
@@ -16,17 +18,22 @@ const Welcome = () => {
     );
 
     color: white;
+    font-size: 40px;
   `;
 
   const Styledlink = styled("div")`
-    font-size: 20px;
     color: white;
-    text-decoration: none;
+    margin-left: 20px;
+    padding-top: 18px;
 
     > a {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
       color: white;
-      text-decoration: none;
-      font-family: monospace;
+      letter-spacing: 0.75px;
+      font-size: 17px;
+      font-family: "Noto Sans HK", sans-serif;
       &:hover {
         color: #6cb4d3;
       }
@@ -34,10 +41,13 @@ const Welcome = () => {
   `;
   return (
     <Styled>
-      <Typography variant="h4">Welcome Mario</Typography>
+      <Typography variant="h4">Welcome Mario!</Typography>
 
       <Styledlink>
-        <a href="#">app.vetrinalive.it/fenoh-store</a>
+        <a href="#">
+          app.vetrinalive.it/fenoh-store
+          <img src={externalLink} alt="" />
+        </a>
       </Styledlink>
     </Styled>
   );
