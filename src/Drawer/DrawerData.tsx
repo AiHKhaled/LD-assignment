@@ -30,11 +30,11 @@ export const drawerData = [
     subnav: [
       {
         title: "Catalog subRoute1",
-        route: "/subRoute1",
+        route: "/catalogue/subRoute1",
       },
       {
         title: "Catalog subRoute2",
-        route: "/subRoute2",
+        route: "/catalogue/subRoute2",
       },
     ],
   },
@@ -60,15 +60,15 @@ export const drawerData = [
     subnav: [
       {
         title: "Discount codes",
-        route: "/discount-codes",
+        route: "/marketing/discount-codes",
       },
       {
         title: "Exit intent",
-        route: "/exit-intent",
+        route: "/marketing/exit-intent",
       },
       {
         title: "Checkout Features",
-        route: "/checkout-features",
+        route: "/marketing/checkout-features",
       },
       {
         title: "Post-purchase conversion",
