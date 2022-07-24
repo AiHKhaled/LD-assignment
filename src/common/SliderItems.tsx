@@ -1,7 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-
 type SliderProps = {
   firstpart?: string;
   secondpart?: string;
@@ -14,7 +13,7 @@ export const SliderItems: React.FC<SliderProps> = ({
   link,
 }: SliderProps) => {
   const content = {
-    width: "156px",
+    width: "140px",
     textAlign: "center",
     borderRadius: "10px",
     height: "160px",

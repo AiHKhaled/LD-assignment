@@ -32,7 +32,13 @@ export const Trust = () => {
         </Typography>
       }
       CardFooter={
-        <CustomLink content="Write a review on Trustpilot" link="#" hasIcon />
+        <CustomLink
+          newColor="#00C48C"
+          content="Write a review on Trustpilot"
+          link="#"
+          hasIcon
+          iconColor="#00C48C"
+        />
       }
       style={style}
     />

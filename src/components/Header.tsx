@@ -18,6 +18,7 @@ const Header = () => {
     color: theme.palette.text.primary,
     variant: "h6",
     fontSize: "17px",
+
     fontWeight: "500",
   }));
   const { isOpened } = useDrawerContext();

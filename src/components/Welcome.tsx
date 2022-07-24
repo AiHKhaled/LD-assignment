@@ -23,7 +23,7 @@ const Welcome = () => {
 
   const Styledlink = styled("div")`
     color: white;
-    margin-left: 20px;
+    margin-right: 20px;
     padding-top: 18px;
 
     > a {
@@ -39,9 +39,13 @@ const Welcome = () => {
       }
     }
   `;
+
+  const StyledFont = styled(Typography)({
+    fontWeight: 600,
+  });
   return (
     <Styled>
-      <Typography variant="h4">Welcome Mario!</Typography>
+      <StyledFont variant="h4">Welcome Mario!</StyledFont>
 
       <Styledlink>
         <a href="#">

@@ -10,7 +10,7 @@ import { drawerData } from "./DrawerData";
 import { useDrawerContext } from "../context/DrawerContext";
 import DrawerMenu from "./DrawerMenu";
 import { MultiChoice } from "../common/MultiChoice";
-
+import logo from "../images/logo.png";
 const drawerWidth = 255;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -55,20 +55,24 @@ const SideBar = () => {
   const { isOpened, toggleIsOpened } = useDrawerContext();
   const [selected, setSelected] = useState<number>(0);
 
+  const style = {
+    firstBox: {
+      mb: "20px",
+      ml: "5px",
+      mr: "-5px",
+      display: "flex",
+      justifyContent: isOpened ? "space-between" : "center",
+      alignItems: "center",
+      p: "13px 20px 20px 10px",
+    },
+    divider: { m: "20px" },
+    typo: { ml: "15px" },
+  };
+
   return (
-    <Drawer variant={"permanent"} open={isOpened}>
-      <Box
-        mb={4}
-        display="flex"
-        justifyContent={isOpened ? "space-between" : "center"}
-        alignItems="center"
-        p="15px 20px 0px 27px"
-      >
-        {isOpened && (
-          <Typography fontWeight={600} letterSpacing="5px">
-            Vitrina
-          </Typography>
-        )}
+    <Drawer variant="permanent" open={isOpened}>
+      <Box sx={style.firstBox}>
+        {isOpened && <img src={logo} alt="logo" />}
         <IconButton
           color="inherit"
           onClick={() => toggleIsOpened(!isOpened)}
@@ -95,7 +99,7 @@ const SideBar = () => {
             index
           ) =>
             (isDivider && (
-              <Divider key={`divid${index}`} sx={{ m: "20px" }} />
+              <Divider key={`divid${index}`} sx={style.divider} />
             )) ||
             (isMenu && (
               <div key={`ItemMenu${index}`} onClick={() => setSelected(index)}>
@@ -110,11 +114,10 @@ const SideBar = () => {
                   route={route}
                 />
               </div>
-              //</NavLink>
             )) ||
             (isStore && isOpened && (
               <div key={`storeItem${index}`}>
-                <Typography sx={{ ml: "15px" }}>select a store</Typography>
+                <Typography sx={style.typo}>select a store</Typography>
                 <MultiChoice data={items} />
               </div>
             ))

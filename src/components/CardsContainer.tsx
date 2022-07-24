@@ -18,7 +18,7 @@ export default function CardsContainer() {
   const style = {
     grid: {
       flexGrow: 1,
-      p: "0 20px",
+      px: " 40px",
       marginTop: "-50px",
     },
     gridleft: {
@@ -34,7 +34,7 @@ export default function CardsContainer() {
 
   return (
     <Grid container sx={style.grid}>
-      <Grid lg={8} container spacing={2} style={style.gridleft}>
+      <Grid container lg={8} spacing={3} style={style.gridleft}>
         {leftCards.map((Card, i) => {
           return (
             <Grid key={`leftCard${i}`} item xs={12} md={i === 4 ? 12 : 6}>
@@ -43,7 +43,7 @@ export default function CardsContainer() {
           );
         })}
       </Grid>
-      <Grid container lg={4} xs={12} spacing={2} style={style.gridright}>
+      <Grid container lg={4} xs={12} spacing={3} style={style.gridright}>
         {rightCards.map((Card, i) => {
           return (
             <Grid key={i} item xs={12}>

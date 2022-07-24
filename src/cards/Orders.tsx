@@ -5,19 +5,35 @@ import { Typography } from "@mui/material";
 import { CustomLink } from "../common/CustomLink";
 
 export const Orders = () => {
+  const first = {
+    display: "flex",
+    flexDirection: "column",
+  };
+  const second = {
+    display: "flex",
+    justifyContent: "space-between",
+    pb: "20px",
+  };
+  const third = {
+    display: "flex",
+    justifyContent: "space-between",
+  };
+  const typoColor = {
+    color: "#6C7C8C",
+  };
   return (
     <MediaCard
       isPeriod
       Icon={ListIcon}
       title="Orders"
       CardBody={
-        <Box display="flex" flexDirection={"column"}>
-          <Box display="flex" justifyContent={"space-between"} pb="20px">
-            <Typography>Orders Received:</Typography>
+        <Box sx={first}>
+          <Box sx={second}>
+            <Typography sx={typoColor}>Orders Received:</Typography>
             <Typography>156</Typography>
           </Box>
-          <Box display="flex" justifyContent={"space-between"}>
-            <Typography>Earnings:</Typography>
+          <Box sx={third}>
+            <Typography sx={typoColor}>Earnings:</Typography>
             <Typography>€ 1893,24</Typography>
           </Box>
         </Box>

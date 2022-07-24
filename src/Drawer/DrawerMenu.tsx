@@ -7,7 +7,7 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
-import { Badge, Chip, styled } from "@mui/material";
+import { Badge, styled, useTheme } from "@mui/material";
 import { DrawerItem } from "../Types/IconsType";
 import { useDrawerContext } from "../context";
 import { Link } from "react-router-dom";
@@ -19,9 +19,12 @@ const DrawerMenu: React.FC<DrawerItem> = ({
   badgeContent,
   hasBadge,
   route,
+  isSelected,
 }: DrawerItem) => {
   const { isOpened } = useDrawerContext();
   const [open, setOpen] = React.useState(true);
+
+  const theme = useTheme();
 
   const handleClick = () => {
     setOpen(!open);
@@ -40,6 +43,7 @@ const DrawerMenu: React.FC<DrawerItem> = ({
     container: {
       width: "100%",
       maxWidth: 360,
+
       bgcolor: "background.paper",
     },
     list: {
@@ -55,21 +59,37 @@ const DrawerMenu: React.FC<DrawerItem> = ({
   const DrawerButton = () => {
     return (
       <StyledButton onClick={handleClick}>
-        {hasBadge ? (
-          <Badge badgeContent={badgeContent} color="error" variant="dot">
-            <Icon />
-          </Badge>
-        ) : (
-          <Icon />
+        <Icon
+          sx={{
+            color: isSelected ? "#21B8F9" : theme.palette.text.primary,
+            userSelect: "none",
+          }}
+        />
+
+        {isOpened && (
+          <ListItemText
+            sx={{
+              pl: "15px",
+              color: isSelected ? "#21B8F9" : theme.palette.text.primary,
+            }}
+            primary={title}
+          />
         )}
-        {isOpened && <ListItemText sx={{ pl: "15px" }} primary={title} />}
 
         {(hasBadge && isOpened && (
-          <Chip
-            label={badgeContent}
-            color={"secondary"}
-            size="small"
-            sx={{ height: "auto" }}
+          <Badge
+            badgeContent={badgeContent}
+            color="success"
+            sx={{
+              "& .MuiBadge-badge": {
+                fontSize: "12px",
+                height: "24px",
+                minWidth: "24px",
+                borderRadius: "50%",
+                padding: "2px",
+                transform: "translate(-5% , -50%)",
+              },
+            }}
           />
         )) ||
           (subnav && isOpened ? open ? <ExpandLess /> : <ExpandMore /> : "")}

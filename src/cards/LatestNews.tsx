@@ -9,9 +9,13 @@ export const News = () => {
   const stack = {
     display: "flex",
     flexDirection: "row",
-    gap: "1",
+    alignItems: "center",
+    alignSelf: "center",
+    height: "40px",
   };
-
+  const link = {
+    margin: "20px",
+  };
   return (
     <>
       <MediaCard
@@ -20,7 +24,8 @@ export const News = () => {
         topLink={
           <Stack sx={stack}>
             <CustomLink content="Visit our blog" />
-            <a href="#">
+
+            <a href="#" style={link}>
               <img src={External} />
             </a>
           </Stack>

@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { SliderItems } from "./SliderItems";
+import Frame248 from "../images/Frame248.jpg";
+import Frame238 from "../images/Frame238.jpg";
 
 export const Responsive = () => {
   const theme = useTheme();
@@ -11,12 +13,12 @@ export const Responsive = () => {
 
   const data = [
     {
-      link: "https://picsum.photos/200/300",
+      link: Frame248,
       firstpart: "Connect your own",
       secondpart: "domain ",
     },
     {
-      link: "https://picsum.photos/200/300",
+      link: Frame238,
       firstpart: "50 Additional",
       secondpart: " Products ",
     },
@@ -36,10 +38,10 @@ export const Responsive = () => {
     arrows: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 1.15,
     slidesToScroll: large ? 3 : 1,
     centerMode: true,
-    centerPadding: large ? "5px" : "50px",
+    centerPadding: large ? "5px" : "40px",
   };
 
   const container = {
