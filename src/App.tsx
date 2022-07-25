@@ -8,11 +8,14 @@ import { Box } from "@mui/system";
 
 import { Layout } from "./Layout";
 function App() {
+  const displayApp = {
+    display: "flex",
+  };
   return (
     <div className="App">
       <DrawerContextProvider>
         <Router>
-          <Box display="flex">
+          <Box sx={displayApp}>
             <Header />
             <SideBar />
             <Layout />

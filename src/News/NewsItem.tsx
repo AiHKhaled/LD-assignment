@@ -1,7 +1,6 @@
 import { Grid, Link, Paper, styled, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { FC } from "react";
-import Masonry from "@mui/lab/Masonry";
 
 export type NewsItemType = {
   image?: string;
@@ -21,6 +20,7 @@ export const NewsItem: FC<NewsItemType> = ({
       color: "rgba(33, 184, 249, 1)",
       textTransform: "uppercase",
       fontWeight: "500",
+      fontSize: "11px",
     },
     linkColor: {
       color: " #103B66",
@@ -30,7 +30,24 @@ export const NewsItem: FC<NewsItemType> = ({
     },
 
     boxWidth: {
-      width: "355px",
+      minWidth: "355px",
+    },
+    secondBox: {
+      display: "flex",
+      flexDirection: "row",
+      gap: 2,
+      paddingTop: "10px",
+    },
+    image: {
+      width: 100,
+      height: 100,
+    },
+    thirdBox: {
+      paddingTop: "8px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 1,
+      width: "225px",
     },
   };
 
@@ -46,15 +63,13 @@ export const NewsItem: FC<NewsItemType> = ({
   `;
 
   return (
-    <Box sx={{ width: 355 }}>
+    <Box sx={style.boxWidth}>
       <Grid container lg={12}>
-        <Box display="flex" flexDirection="row" gap={2} pt="10px">
-          <img src={image} alt="news" height={100} />
+        <Box sx={style.secondBox}>
+          <img src={image} style={style.image} alt="news" />
 
-          <Box display="flex" flexDirection="column" gap={1}>
-            <Typography sx={style.typo} fontSize="11px">
-              {title}
-            </Typography>
+          <Box sx={style.thirdBox}>
+            <Typography sx={style.typo}>{title}</Typography>
             <ParagraphStyle>{description}</ParagraphStyle>
             <Link style={style.linkColor}>{publisher}</Link>
           </Box>

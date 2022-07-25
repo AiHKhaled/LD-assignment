@@ -7,9 +7,14 @@ function DashboardContent() {
   const Space = styled("div")`
     height: 52px;
   `;
+  const style = {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+  };
   return (
     <>
-      <Box display="flex" flexDirection="column" flexGrow={1}>
+      <Box sx={style}>
         <Space />
         <Welcome />
         <ApiContextProvider>

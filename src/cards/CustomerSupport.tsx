@@ -13,12 +13,17 @@ export const CustomerSupport = () => {
       background: "#5db8df",
     },
   });
+  const stack = {
+    direction: "row",
+    spacing: 2,
+    alignItems: "center",
+  };
   return (
     <MediaCard
       Icon={HeadsetIcon}
       title="Customer Support"
       CardBody={
-        <Stack direction="row" spacing={2} alignItems="center">
+        <Stack sx={stack}>
           <Avatar src="https://i.pravatar.cc/150?img=3" />
           <Typography>Simone is here to help you.</Typography>
         </Stack>

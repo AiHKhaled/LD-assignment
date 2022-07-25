@@ -14,14 +14,14 @@ export const Layout = () => {
               {item.subnav.map((subItem) => (
                 <Route
                   path={subItem.route}
-                  element={<PlaceHolderText text={subItem.title} />}
+                  element={<PlaceHolderText text={subItem.title} soon />}
                 />
               ))}
             </Route>
           ) : (
             <Route
               path={item.route}
-              element={<PlaceHolderText text={item.title} />}
+              element={<PlaceHolderText text={item.title} soon />}
             />
           )}
         </Route>

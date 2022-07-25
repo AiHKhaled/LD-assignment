@@ -56,40 +56,41 @@ const DrawerMenu: React.FC<DrawerItem> = ({
     },
   };
 
+  const drawerStyles = {
+    icon: {
+      color: isSelected ? "#21B8F9" : theme.palette.text.primary,
+      userSelect: "none",
+    },
+    listItem: {
+      pl: "15px",
+      color: isSelected ? "#21B8F9" : theme.palette.text.primary,
+    },
+    badge: {
+      "& .MuiBadge-badge": {
+        fontSize: "12px",
+        height: "24px",
+        minWidth: "24px",
+        borderRadius: "50%",
+        padding: "2px",
+        transform: "translate(-5% , -50%)",
+      },
+    },
+  };
+
   const DrawerButton = () => {
     return (
       <StyledButton onClick={handleClick}>
-        <Icon
-          sx={{
-            color: isSelected ? "#21B8F9" : theme.palette.text.primary,
-            userSelect: "none",
-          }}
-        />
+        <Icon sx={drawerStyles.icon} />
 
         {isOpened && (
-          <ListItemText
-            sx={{
-              pl: "15px",
-              color: isSelected ? "#21B8F9" : theme.palette.text.primary,
-            }}
-            primary={title}
-          />
+          <ListItemText sx={drawerStyles.listItem} primary={title} />
         )}
 
         {(hasBadge && isOpened && (
           <Badge
             badgeContent={badgeContent}
             color="success"
-            sx={{
-              "& .MuiBadge-badge": {
-                fontSize: "12px",
-                height: "24px",
-                minWidth: "24px",
-                borderRadius: "50%",
-                padding: "2px",
-                transform: "translate(-5% , -50%)",
-              },
-            }}
+            sx={drawerStyles.badge}
           />
         )) ||
           (subnav && isOpened ? open ? <ExpandLess /> : <ExpandMore /> : "")}
