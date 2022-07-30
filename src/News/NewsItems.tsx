@@ -26,27 +26,44 @@ export const NewsItems = () => {
       });
   }, [dispatch]);
 
+  const box = {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+
+    gap: 2,
+    padding: "10px",
+  };
+
+  const skeleton = {
+    width: 120,
+    height: "auto",
+  };
+  const secondSkeleton = {
+    width: 370,
+    height: "auto",
+  };
+  const secondStack = {
+    display: "flex",
+    flexDirection: "column",
+    gap: 2,
+  };
+
   return (
     <>
       {loading && (
         <>
-          <Stack
-            display="flex"
-            flexDirection="row"
-            flexWrap="wrap"
-            gap={2}
-            p="10px"
-          >
-            <Skeleton variant="rectangular" width={120} height="auto" />
-            <Stack display="flex" flexDirection="column" gap={2}>
+          <Stack>
+            <Skeleton sx={skeleton} variant="rectangular" />
+            <Stack sx={secondStack}>
               <Skeleton variant="text" />
-              <Skeleton variant="rectangular" width="370px" height="auto" />
+              <Skeleton variant="rectangular" sx={secondSkeleton} />
             </Stack>
           </Stack>
         </>
       )}
       {error}
-      <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2} p="10px">
+      <Box sx={box}>
         {data?.map((d, i) => {
           const { title, description, image, publisher } = d;
           return (

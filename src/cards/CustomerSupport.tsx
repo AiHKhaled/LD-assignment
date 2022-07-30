@@ -14,8 +14,8 @@ export const CustomerSupport = () => {
     },
   });
   const stack = {
-    direction: "row",
-    spacing: 2,
+    flexDirection: "row",
+    gap: 2,
     alignItems: "center",
   };
   return (

@@ -31,12 +31,15 @@ export const SliderItems: React.FC<SliderProps> = ({
     alignItems: "center",
     mb: "12px",
   };
+  const typo = {
+    fontSize: "15px",
+  };
 
   return (
     <Box sx={container}>
       <Box sx={content} />
 
-      <Typography fontSize="15px">
+      <Typography sx={typo}>
         {firstpart} <br /> {secondpart}
       </Typography>
     </Box>

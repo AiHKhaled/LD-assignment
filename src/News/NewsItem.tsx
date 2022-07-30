@@ -1,4 +1,5 @@
 import { Grid, Link, Paper, styled, Typography } from "@mui/material";
+import { CSSProperties } from "@mui/styled-engine";
 import { Box } from "@mui/system";
 import { FC } from "react";
 
@@ -7,6 +8,7 @@ export type NewsItemType = {
   title?: string;
   description?: string;
   publisher?: string;
+  styling?: CSSProperties;
 };
 
 export const NewsItem: FC<NewsItemType> = ({
@@ -30,7 +32,7 @@ export const NewsItem: FC<NewsItemType> = ({
     },
 
     boxWidth: {
-      minWidth: "355px",
+      minWidth: "405px",
     },
     secondBox: {
       display: "flex",
@@ -47,7 +49,7 @@ export const NewsItem: FC<NewsItemType> = ({
       display: "flex",
       flexDirection: "column",
       gap: 1,
-      width: "225px",
+      width: "270px",
     },
   };
 

@@ -36,7 +36,7 @@ const DrawerMenu: React.FC<DrawerItem> = ({
   });
 
   const StyledButton = styled(ListItemButton)({
-    "&:hover": { background: "#26284687" },
+    "&:hover": { color: "#000" },
   });
 
   const style = {

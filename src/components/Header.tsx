@@ -1,13 +1,5 @@
 import AppBar from "@mui/material/AppBar";
-import {
-  Typography,
-  Toolbar,
-  Box,
-  Badge,
-  Button,
-  useTheme,
-  styled,
-} from "@mui/material";
+import { Typography, Toolbar, Box, Badge, Button, styled } from "@mui/material";
 import BoltIcon from "@mui/icons-material/Bolt";
 import { useDrawerContext } from "../context/DrawerContext";
 
@@ -33,6 +25,13 @@ const Header = () => {
       marginLeft: isOpened ? "250px" : "50px",
       transition: "all 200ms ease-out",
     },
+    secondBox: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexGrow: 1,
+      flexWrap: "wrap",
+    },
     button: {
       padding: "0",
       color: "rgba(16, 59, 102, 1)",
@@ -46,13 +45,7 @@ const Header = () => {
     <AppBar elevation={0} sx={style.appbar}>
       <Toolbar>
         <Box sx={style.box} />
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          flexGrow={1}
-          flexWrap="wrap"
-        >
+        <Box sx={style.secondBox}>
           <Dash>Dashboard</Dash>
           <Badge badgeContent={2} color="secondary">
             <Button sx={style.button}>
