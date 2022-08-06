@@ -1,5 +1,5 @@
 import MediaCard from "./ParentCard";
-import news from "../images/News.svg";
+import news from "../images/news.svg";
 import { CustomLink } from "../common/CustomLink";
 import External from "../images/External.svg";
 import { Stack } from "@mui/material";
